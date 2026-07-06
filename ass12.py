@@ -54,3 +54,30 @@ while True :
 
 
 #Q3
+
+
+# Create a function manage_marks() that:
+def manage_marks():
+
+    mark_list = []
+
+    # Takes 5 subject marks as input from the user.
+    while True:
+
+        # Handles ValueError if non-numeric input is given.
+        try:
+            marks = int(input("Enter ur marks = "))
+        except ValueError:
+            print(" Enter only Numbers ")
+        else:
+
+            # Stores them in a list.
+            mark_list.append(marks)
+
+        if len(mark_list) == 5:
+            break
+
+        # Calculates and prints the average, highest, and lowest marks.
+        
+    print(mark_list)
+manage_marks()

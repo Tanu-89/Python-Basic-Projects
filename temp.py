@@ -1,18 +1,45 @@
-# function analyze_string(s) that takes a string as input and
-def analyze_string(s):
+# Create a function manage_marks() that:
+def manage_marks():
 
-    #Prints its length using len().
-    print("length of the strign = ", len(s))
+    # defining variables to be used further
+    total = 0
+    mark_list = []
+    high , low = 0 , 100
 
-    # Prints the string in reverse using slicing.
-    print("reverse string = ", s[-1])
+    # Takes 5 subject marks as input from the user.
+    while True:
 
-    # Counts and prints how many vowels (a,e,i,o,u) are in the string (case insensitive).
-    print("vowels = ", count_vowels(s))
+        # Handles ValueError if non-numeric input is given.
+        try:
+            marks = int(input("Enter ur marks = "))
+        except ValueError:
+            print(" Enter only Numbers ")
+        else:
+            #storing total marks 
+            total += marks
 
-    # Uses a for loop with range() to print each character with its positive and negative index.
-    for i in range(len(s)):
-        print(s[i], " index = " , i )
 
-s= input()
-analyze_string(s)
+            # highest 
+            if marks >= high :
+                high = marks
+
+            # lowest 
+            if marks < low :
+                low = marks
+
+            # Stores them in a list.
+            mark_list.append(marks)
+        # takes only 5 inputs
+        if len(mark_list) == 5:
+            break
+
+        # Calculates and prints the average, highest, and lowest marks.
+    print(f"-- Highest marks = {high}")    
+    print(f"-- Lowerst marks = {low}")
+    print(f"-- Avg marks = {total//5}")
+    print(mark_list)
+
+manage_marks()
+
+
+#Q4
