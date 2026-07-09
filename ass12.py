@@ -287,3 +287,190 @@ except Exception as e :
 
 #Q8 
 
+class Employee :
+    def __init__(self, emp_id , name, detail):
+        self.empid = emp_id
+        self.name = name
+        self.detail = detail
+
+    def show_detail (self):
+        print("Employee ID :", self.emp_id)
+        print("Name        :", self.name)
+        print("Department  :", self.details[0])
+        print("Salary      :", self.details[1])
+        print("---------------------------")
+
+
+# Dictionary to store Employee objects
+employees = {}
+
+# Add 3 employees
+for i in range(3):
+    emp_id = int(input("Enter Employee ID: "))
+    name = input("Enter Name: ")
+    department = input("Enter Department: ")
+    salary = int(input("Enter Salary: "))
+
+    emp = Employee(emp_id, name, department, salary)
+    employees[emp_id] = emp
+
+# Display all employees
+print("\nEmployee Details")
+for emp in employees.values():
+    emp.show_details()
+
+
+
+# Q9 
+
+
+import math
+
+try:
+    # Take sentence as input
+    sentence = input("Enter a sentence: ")
+
+    # Extract unique words using set
+    words = sentence.split()
+    unique_words = set(words)
+
+    # Print unique words in sorted order
+    print("Unique words in sorted order:")
+    for word in sorted(unique_words):
+        print(word)
+
+    # Print square of total unique words
+    count = len(unique_words)
+    print("Total unique words =", count)
+    print("Square of total unique words =", math.pow(count, 2))
+
+except Exception as e:
+    print("Error:", e)
+
+
+
+# Q10
+
+
+import math
+import random
+
+# Dictionary to store history
+history = {}
+count = 1
+
+
+# Function for Basic Arithmetic
+def arithmetic():
+    try:
+        a = float(input("Enter first number: "))
+        b = float(input("Enter second number: "))
+
+        print("1. Addition")
+        print("2. Subtraction")
+        print("3. Multiplication")
+        print("4. Division")
+
+        ch = int(input("Enter choice: "))
+
+        if ch == 1:
+            return a + b
+        elif ch == 2:
+            return a - b
+        elif ch == 3:
+            return a * b
+        elif ch == 4:
+            return a / b
+        else:
+            print("Invalid Choice")
+            return None
+
+    except ZeroDivisionError:
+        print("Cannot divide by zero.")
+    except Exception as e:
+        print("Error:", e)
+
+
+# Function for Scientific Calculations
+def scientific():
+    try:
+        num = float(input("Enter number: "))
+
+        print("1. Square Root")
+        print("2. Factorial")
+        print("3. Sine")
+        print("4. Cosine")
+
+        ch = int(input("Enter choice: "))
+
+        if ch == 1:
+            return math.sqrt(num)
+        elif ch == 2:
+            return math.factorial(int(num))
+        elif ch == 3:
+            return math.sin(num)
+        elif ch == 4:
+            return math.cos(num)
+        else:
+            print("Invalid Choice")
+            return None
+
+    except Exception as e:
+        print("Error:", e)
+
+
+# Function for Random Numbers
+def random_number():
+    return random.randint(1, 100)
+
+
+# Main Menu
+while True:
+    print("\n===== MENU =====")
+    print("1. Basic Arithmetic")
+    print("2. Scientific Calculations")
+    print("3. Generate Random Number")
+    print("4. Store Result")
+    print("5. View History")
+    print("6. Exit")
+
+    choice = int(input("Enter choice: "))
+
+    if choice == 1:
+        result = arithmetic()
+        print("Result =", result)
+
+    elif choice == 2:
+        result = scientific()
+        print("Result =", result)
+
+    elif choice == 3:
+        result = random_number()
+        print("Random Number =", result)
+
+    elif choice == 4:
+        timestamp = input("Enter timestamp (e.g. 10-07-2026 10:30 AM): ")
+        history[count] = {
+            "Timestamp": timestamp,
+            "Result": result
+        }
+        count += 1
+        print("Result Stored Successfully.")
+
+    elif choice == 5:
+        if len(history) == 0:
+            print("No History Available.")
+        else:
+            print("\nHistory")
+            for key, value in history.items():
+                print("Record", key)
+                print("Timestamp:", value["Timestamp"])
+                print("Result:", value["Result"])
+                print("-------------------")
+
+    elif choice == 6:
+        print("Program Ended.")
+        break
+
+    else:
+        print("Invalid Choice.")
