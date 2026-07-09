@@ -1,45 +1,36 @@
-# Create a function manage_marks() that:
-def manage_marks():
+# Q7
 
-    # defining variables to be used further
-    total = 0
-    mark_list = []
-    high , low = 0 , 100
+# Create a lambda function to calculate the square of a number.
+sqr = lambda x : x**2
 
-    # Takes 5 subject marks as input from the user.
-    while True:
+try :
+     # Generate numbers from 1 to 20 and store their squares
+    num1 = list(map(sqr , range(1, 21)))
 
-        # Handles ValueError if non-numeric input is given.
-        try:
-            marks = int(input("Enter ur marks = "))
-        except ValueError:
-            print(" Enter only Numbers ")
-        else:
-            #storing total marks 
-            total += marks
+    print("squares = ", {num1})
 
+    #Prints only the even squares from the list.
+    for i in num1:
+        if i % 2 == 0 :
+            print(i , end=" ")
+            
+except Exception as e :
+    print("Error ", e )# Q7
 
-            # highest 
-            if marks >= high :
-                high = marks
+# Create a lambda function to calculate the square of a number.
+sqr = lambda x : x**2
 
-            # lowest 
-            if marks < low :
-                low = marks
+try :
+     # Generate numbers from 1 to 20 and store their squares
+    l = list(map(sqr , range(1, 21)))
 
-            # Stores them in a list.
-            mark_list.append(marks)
-        # takes only 5 inputs
-        if len(mark_list) == 5:
-            break
+    print("squares = ", l)
 
-        # Calculates and prints the average, highest, and lowest marks.
-    print(f"-- Highest marks = {high}")    
-    print(f"-- Lowerst marks = {low}")
-    print(f"-- Avg marks = {total//5}")
-    print(mark_list)
-
-manage_marks()
-
-
-#Q4
+    #Prints only the even squares from the list.
+    print("even squres = \n [", end=" ")
+    for i in l:
+        if i % 2 == 0 :
+            print(i , end=" ")
+    print("]" , end= " ")
+except Exception as e :
+    print("Error ", e )
